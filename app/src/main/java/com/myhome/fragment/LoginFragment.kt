@@ -33,7 +33,7 @@ class LoginFragment : Fragment() {
 
         if (Session.exists()) {
             // Redirect if credentials present
-            findNavController().navigate(R.id.action_login_to_members)
+            findNavController().navigate(R.id.login_to_members)
         }
 
         _binding = FragmentLoginBinding.inflate(inflater, container, false)

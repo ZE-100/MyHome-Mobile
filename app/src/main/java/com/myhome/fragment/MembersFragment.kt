@@ -36,7 +36,7 @@ class MembersFragment : Fragment() {
 
         // Redirect if credentials present
         if (Session.getCurrentMember() != null)
-            findNavController().navigate(R.id.action_members_to_dashboard)
+            findNavController().navigate(R.id.members_to_dashboard)
 
         _binding = FragmentMembersBinding.inflate(inflater, container, false)
         return binding.root

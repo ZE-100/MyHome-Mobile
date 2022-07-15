@@ -2,15 +2,11 @@ package com.myhome.service.api.components.impl;
 
 import com.myhome.Application;
 import com.myhome.other.API;
-import com.myhome.other.Api;
 import com.myhome.other.Session;
 import com.myhome.service.api.callback.CallbackEntity;
 import com.myhome.service.api.components.GsonRequest;
 import com.myhome.service.api.components.IFetchAccountService;
 import com.myhome.util.Logger;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;

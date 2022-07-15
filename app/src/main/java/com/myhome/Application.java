@@ -8,8 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.myhome.databinding.ActivityMainBinding;
-import com.myhome.fragment.MembersFragment;
-import com.myhome.other.Session;
 import com.myhome.other.SharedPref;
 import com.myhome.service.data.DataHandlingService;
 
