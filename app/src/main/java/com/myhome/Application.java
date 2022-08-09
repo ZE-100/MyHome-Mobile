@@ -68,6 +68,8 @@ public class Application extends AppCompatActivity {
 
         FloatingActionButton fab = findViewById(R.id.fab);
 
+        Session.Factory.switchDebug();
+
         fab.setOnClickListener(e -> {
             Session.Factory.switchDebug();
 

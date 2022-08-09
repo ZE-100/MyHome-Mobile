@@ -20,7 +20,7 @@ class Session {
 
         private var ALL_MEMBERS: Members = Members()
 
-        private var DEBUG: DebugMode = DebugMode.DEACTIVATED
+        private var DEBUG: DebugMode = DebugMode.ONLINE
 
         private val dataService = DataHandlingService()
 
