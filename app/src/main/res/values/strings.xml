@@ -22,12 +22,12 @@
     <string name="account">Account</string>
     <string name="help">Help</string>
     <string name="rooms">Rooms</string>
-    <string name="overview">Overview</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="fragment_title_default">Title</string>
     <string name="change_password">Change Password</string>
     <string name="delete_account">Delete Account</string>
     <string name="cancel">Cancel</string>
     <string name="confirm">Confirm</string>
-
 
 
     <string name="help_company_name">MyHome</string>
