@@ -14,6 +14,7 @@ import com.myhome.other.GridAdapter
 import java.lang.Exception
 
 import android.widget.AdapterView.OnItemClickListener
+import com.myhome.blueprint.Member
 import com.myhome.other.Session
 import com.myhome.service.api.components.impl.FetchMemberService
 
@@ -25,18 +26,14 @@ class MembersFragment : Fragment() {
     private var _binding: FragmentMembersBinding? = null
     private val binding get() = _binding!!
 
-    private var memberService = FetchMemberService()
-
-    private var members = Session.getAllMembers()!!.members
-
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?, savedInstanceState: Bundle?): View {
 
-        getMembersFromApi()
+        fetchAllMembersFromAPI()
 
         // Redirect if credentials present
-        if (Session.getCurrentMember() != null)
-            findNavController().navigate(R.id.action_members_to_dashboard)
+        if (Session.memberSelected())
+            findNavController().navigate(R.id.members_to_dashboard)
 
         _binding = FragmentMembersBinding.inflate(inflater, container, false)
         return binding.root
@@ -49,6 +46,8 @@ class MembersFragment : Fragment() {
     }
 
     private fun generateBindings() {
+        val members: List<Member> = Session.getAllMembers().members
+
         binding.addMemberButton.setOnClickListener {
             findNavController().navigate(R.id.members_to_add_member)
         }
@@ -66,10 +65,12 @@ class MembersFragment : Fragment() {
         }
     }
 
-    private fun getMembersFromApi() {
+    private fun fetchAllMembersFromAPI() {
+        val memberService = FetchMemberService()
+
         try {
             memberService.fetchAllMembers {
-                    result -> Session.setAllMembers(result.members)
+                result -> Session.setAllMembers(result)
             }
         } catch (e: Exception) {
             e.printStackTrace()

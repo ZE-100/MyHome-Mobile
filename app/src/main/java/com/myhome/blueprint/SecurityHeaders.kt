@@ -6,6 +6,8 @@ class SecurityHeaders(email: String, password: String, token: String) {
 
     constructor() : this("", "", "")
 
+    constructor(account: Account) : this(account.email!!, account.password!!, account.token!!)
+
     private val headers = HashMap<String, String>()
 
     init {

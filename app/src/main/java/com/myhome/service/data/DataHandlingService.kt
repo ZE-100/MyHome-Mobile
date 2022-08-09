@@ -18,19 +18,17 @@ class DataHandlingService {
         val account = Session.getAccount()
         val currentMember = Session.getCurrentMember()
 
-        if (account != null)
-            editor.apply {
-                  putString(SharedPref.EMAIL, account.email)
-                  putString(SharedPref.PASSWORD, account.password)
-                  putString(SharedPref.TOKEN, account.token)
-            }.apply()
+        editor.apply {
+              putString(SharedPref.EMAIL, account.email)
+              putString(SharedPref.PASSWORD, account.password)
+              putString(SharedPref.TOKEN, account.token)
+        }.apply()
 
-        if (currentMember != null)
-            editor.apply {
-                putLong(SharedPref.MEMBER_ID, currentMember.id)
-                putString(SharedPref.MEMBER_NAME, currentMember.name)
-                putInt(SharedPref.MEMBER_ICON, currentMember.icon)
-            }.apply()
+        editor.apply {
+            putLong(SharedPref.MEMBER_ID, currentMember.id)
+            putString(SharedPref.MEMBER_NAME, currentMember.name)
+            putInt(SharedPref.MEMBER_ICON, currentMember.icon)
+        }.apply()
     }
 
     fun loadData() {
@@ -38,15 +36,26 @@ class DataHandlingService {
         val password = sharedPref.getString(SharedPref.PASSWORD, null)
         val token = sharedPref.getString(SharedPref.TOKEN, null)
 
-        val memberId = sharedPref.getLong(SharedPref.MEMBER_ID, -1L)
-        val memberName = sharedPref.getString(SharedPref.MEMBER_NAME, null)
-        val memberIcon = sharedPref.getInt(SharedPref.MEMBER_ICON, -1)
+        val currentMemberId = sharedPref.getLong(SharedPref.MEMBER_ID, -1L)
+        val currentMemberName = sharedPref.getString(SharedPref.MEMBER_NAME, null)
+        val currentMemberIcon = sharedPref.getInt(SharedPref.MEMBER_ICON, -1)
 
-        Session.addAccount(Account(email, password, token))
+        var account = Account()
+        var member = Member()
 
-        if (memberId != -1L && memberName != null && memberIcon != -1) {
-            Session.addAuth(SecurityHeaders(email!!, password!!, token!!))
-            Session.setCurrentMember(Member(memberId, memberName, memberIcon))
-        }
+        //TODO Update logic: Implement automatic login request if email & pw found
+        if (email != null && password != null && token != null)
+             account = Account(email, password, token)
+
+        if(currentMemberId != -1L && currentMemberName != null && currentMemberIcon != -1)
+            member = Member(currentMemberId, currentMemberName, currentMemberIcon)
+
+        updateSession(account, member)
+    }
+
+    private fun updateSession(account: Account, member: Member) {
+        Session.addAccount(account)
+        Session.addAuth(SecurityHeaders(account))
+        Session.setCurrentMember(member)
     }
 }

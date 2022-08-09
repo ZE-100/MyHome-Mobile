@@ -1,7 +1,7 @@
 package com.myhome.service.api.components;
 
 import com.myhome.service.api.callback.CallbackEntity;
-import com.myhome.service.api.response.Members;
+import com.myhome.blueprint.Members;
 
 public interface IFetchMemberService {
 

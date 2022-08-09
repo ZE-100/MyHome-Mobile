@@ -90,8 +90,7 @@
                 android:inputType="textPersonName"
                 android:textColor="@color/main_writing_color"
                 android:textColorHighlight="#00FFFFFF"
-                android:textColorLink="#00FFFFFF"
-                />
+                android:textColorLink="#00FFFFFF" />
 
         <EditText
                 android:id="@+id/inputPassword"

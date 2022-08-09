@@ -1,4 +1,4 @@
-package com.myhome.util
+package com.myhome.util.factory
 
 import java.lang.IllegalArgumentException
 
