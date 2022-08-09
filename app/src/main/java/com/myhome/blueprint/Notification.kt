@@ -6,8 +6,9 @@ import com.myhome.service.notification.NotificationService
 
 data class Notification(val title: String, val desc: String, val channel: Channel) {
 
+    private val notificationService = NotificationService()
+
     fun createNotification(context: Context) {
-        val notificationService = NotificationService()
         notificationService.create(context, this)
     }
 }
