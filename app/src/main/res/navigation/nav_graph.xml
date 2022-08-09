@@ -13,16 +13,11 @@
             android:label="@string/fragment_login_label"
             tools:layout="@layout/fragment_login">
 
-        <action android:id="@+id/login_to_register"
-                app:destination="@id/RegisterFragment" />
-
-<!--change this is only for dev purpose-->
-        <action android:id="@+id/login_to_dashboard"
-                app:destination="@id/DashboardFragment" />
-
         <action android:id="@+id/login_to_login"
                 app:destination="@id/LoginFragment" />
 
+        <action android:id="@+id/login_to_register"
+                app:destination="@id/RegisterFragment" />
 
         <action android:id="@+id/login_to_members"
                 app:destination="@id/MembersFragment" />
@@ -32,6 +27,9 @@
             android:name="com.myhome.fragment.RegisterFragment"
             android:label="@string/fragment_register_label"
             tools:layout="@layout/fragment_register">
+
+        <action android:id="@+id/register_to_register"
+                app:destination="@id/RegisterFragment" />
 
         <action android:id="@+id/register_to_login"
                 app:destination="@id/LoginFragment" />
@@ -56,8 +54,13 @@
 
         <action android:id="@+id/members_to_add_member"
                 app:destination="@id/AddMemberFragment" />
-    </fragment>
 
+        <action android:id="@+id/members_to_edit_members"
+                app:destination="@id/EditMembers" />
+
+        <action android:id="@+id/members_to_edit_member"
+                app:destination="@id/EditSpecificMember" />
+    </fragment>
 
 
     <!-- Main Fragments -->
@@ -157,7 +160,7 @@
         <action android:id="@+id/rooms_to_dashboard"
                 app:destination="@id/DashboardFragment" />
 
-        <action android:id="@+id/action_rooms_to_room"
+        <action android:id="@+id/rooms_to_room"
                 app:destination="@id/RoomFragment" />
 
         <action android:id="@+id/rooms_to_add_room"
@@ -216,9 +219,16 @@
             android:label="@string/fragment_room_label"
             tools:layout="@layout/fragment_room">
 
-        <action android:id="@+id/action_room_to_rooms"
+        <action android:id="@+id/room_to_rooms"
                 app:destination="@id/RoomViewFragment" />
 
+        <argument android:name="itemPos"
+                app:argType="integer"
+                android:defaultValue="-1" />
+
+        <argument android:name="backButton"
+                app:argType="integer"
+                android:defaultValue="-1" />
     </fragment>
 
     <fragment android:id="@+id/ItemViewFragment"
