@@ -1,4 +1,4 @@
-package com.myhome.other;
+package com.myhome.service.api.constants;
 
 public enum ApiConst {
 

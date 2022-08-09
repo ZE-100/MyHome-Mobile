@@ -1,4 +1,4 @@
-package com.myhome.util;
+package com.myhome.service.api.callback;
 
 import com.android.volley.VolleyError;
 import com.myhome.service.api.constants.HttpStatus;
