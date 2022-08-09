@@ -12,8 +12,7 @@ import com.myhome.databinding.FragmentSettingsBinding
 import com.myhome.other.Session
 import com.myhome.service.data.DataHandlingService
 import android.widget.AdapterView.OnItemClickListener
-import com.myhome.blueprint.Member
-import com.myhome.other.GridAdapter
+import com.myhome.custom.adapter.member.GridAdapter
 
 /**
  * @author z-100
@@ -66,7 +65,11 @@ class SettingsFragment : Fragment() {
                 R.id.settings_to_settings))
         }
 
-        val gridAdapter = GridAdapter(context, members, R.layout.settings_grid_item)
+        val gridAdapter = GridAdapter(
+            context,
+            members,
+            R.layout.settings_grid_item
+        )
         binding.gridView.adapter = gridAdapter
 
         binding.gridView.onItemClickListener = OnItemClickListener {

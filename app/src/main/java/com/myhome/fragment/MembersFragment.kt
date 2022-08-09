@@ -10,7 +10,7 @@ import com.myhome.R
 import com.myhome.databinding.FragmentMembersBinding
 
 
-import com.myhome.other.GridAdapter
+import com.myhome.custom.adapter.member.GridAdapter
 import java.lang.Exception
 
 import android.widget.AdapterView.OnItemClickListener

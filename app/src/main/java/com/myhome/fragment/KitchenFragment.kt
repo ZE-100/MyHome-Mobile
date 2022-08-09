@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.myhome.R
@@ -31,10 +32,11 @@ class KitchenFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         generateBindings()
+        generateViewBindings()
     }
 
     private fun generateBindings() {
-        binding.navigationBar.setOnItemSelectedListener { item ->
+        binding.navigationBar.navigationBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.footer_home_btn -> findNavController().navigate(KitchenFragmentDirections
                     .kitchenToDashboard().setBackButton(R.id.dashboard_to_kitchen))
@@ -56,6 +58,11 @@ class KitchenFragment : Fragment() {
             findNavController().navigate(KitchenFragmentDirections
                 .kitchenToSettings().setBackButton(R.id.settings_to_kitchen))
         }
+    }
+
+    private fun generateViewBindings() {
+        binding.title.title.text = getString(R.string.kitchen)
+        binding.title.titleIcon.setImageDrawable(getDrawable(this.requireContext(), R.drawable.restaurant_icon))
     }
 
     override fun onDestroyView() {

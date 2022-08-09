@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.myhome.R
@@ -30,11 +31,12 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        generateBindings()
+        generateNavBindings()
+        generateViewBindings()
     }
 
-    private fun generateBindings() {
-        binding.navigationBar.setOnItemSelectedListener { item ->
+    private fun generateNavBindings() {
+        binding.navigationBar.navigationBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.footer_home_btn -> findNavController().navigate(DashboardFragmentDirections
                     .dashboardToDashboard().setBackButton(R.id.dashboard_to_dashboard))
@@ -56,36 +58,22 @@ class DashboardFragment : Fragment() {
             findNavController().navigate(DashboardFragmentDirections
                 .dashboardToSettings().setBackButton(R.id.settings_to_dashboard))
         }
+    }
 
+    //TODO Can be filled with cleaning, upcoming meals, more | Recyclerview with switchable content
+    private fun generateViewBindings() {
 
-//        binding.navbarButtons.backButton.setOnClickListener {
-//            findNavController().navigate(R.id.dashboard_to_members) // TODO Implement thingy
-//        }
-//
-//        binding.navbarButtons.profileButton.setOnClickListener {
-//            findNavController().navigate(R.id.action_members_to_dashboard) // TODO Add profile thingy
-//        }
-//
-//        binding.navigationButtons.homeButton.setOnClickListener {
-//            // Empty as were already in "home"
-//        }
-//
-//        binding.navigationButtons.roomsButton.setOnClickListener {
-//            findNavController().navigate(R.id.dashboard_to_rooms)
-//        }
-//
-//        binding.navigationButtons.kitchenButton.setOnClickListener {
-//            findNavController().navigate(R.id.dashboard_to_kitchen)
-//        }
-//
-//
-//        binding.rateMeal.setOnClickListener {
-//            findNavController().navigate(R.id.dashboard_to_kitchen) //TODO Implement with link to meal. Just scroll to position where meals are
-//        }
-//
-//        binding.shoppinglistButton.setOnClickListener {
-//            findNavController().navigate(R.id.dashboard_to_kitchen) //TODO Implement with link to shopping list. Just scroll to position where shopping list is
-//        }
+        binding.title.title.text = getString(R.string.dashboard)
+        binding.title.titleIcon.setImageDrawable(getDrawable(this.requireContext(), R.drawable.home_icon))
+
+        binding.topBigBox.setOnClickListener {
+        }
+
+        binding.bottomLeftBox.setOnClickListener {
+        }
+
+        binding.bottomRightBox.setOnClickListener {
+        }
     }
 
     override fun onDestroyView() {
