@@ -1,4 +1,4 @@
-package com.myhome.other;
+package com.myhome.custom.adapter.member;
 
 import android.content.Context;
 import android.view.LayoutInflater;
