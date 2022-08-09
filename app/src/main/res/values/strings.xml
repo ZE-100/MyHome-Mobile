@@ -69,4 +69,14 @@
     <string name="fragment_smart_devices_label">Smart Devices Fragment</string>
     <string name="fragment_add_room_label">Add Room Fragment</string>
     <string name="text_back_button">Back</string>
+
+
+    <!-- Notification stuff -->
+    <string name="debug_channel_name">DEBUG CHANNEL</string>
+    <string name="debug_channel_desc">Debug channel is used to do debugging.. duh</string>
+    <string name="debug_channel_title"><!-- Leave empty --></string>
+    <string name="debug_channel_text">The debug mode has been changed!</string>
+
+    <string name="meal_channel_name">MEAL CHANNEL</string>
+    <string name="meal_channel_desc">Meal channel is used to send meal updates</string>
 </resources>
