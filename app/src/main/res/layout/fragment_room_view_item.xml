@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/recyclerview_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        card_view:cardBackgroundColor="#00FF0000"
+        card_view:cardCornerRadius="10dp"
+        tools:context=".fragment.RoomViewItemFragment">
+
+
+    <LinearLayout android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <LinearLayout android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal">
+
+            <ImageView android:layout_weight="1"
+                    android:id="@+id/roomThumbnail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@color/purple_200" />
+
+            <LinearLayout android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                <TextView android:layout_weight="5"
+                        android:id="@+id/roomTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:fontFamily="@font/settings_button_font"
+                        android:textSize="20sp"
+                        android:textColor="@color/teal_200"
+                        android:gravity="center_vertical"
+                        android:maxLength="32"
+                        android:padding="5dp"
+                        android:text="Title" />
+
+                <TextView android:layout_weight="4"
+                        android:id="@+id/roomDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:fontFamily="@font/settings_button_font"
+                        android:textSize="20sp"
+                        android:textColor="@color/teal_200"
+                        android:gravity="center_vertical"
+                        android:maxLength="32"
+                        android:padding="5dp"
+                        android:text="Date" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView android:layout_weight="1.5"
+                android:id="@+id/roomNotes"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:padding="15dp"
+                android:fontFamily="@font/settings_button_font"
+                android:textSize="20sp"
+                android:textColor="@color/teal_200"
+                android:maxLength="90"
+                android:text="Description" />
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
