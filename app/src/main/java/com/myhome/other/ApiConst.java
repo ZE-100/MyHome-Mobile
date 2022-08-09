@@ -1,6 +1,6 @@
 package com.myhome.other;
 
-public enum API {
+public enum ApiConst {
 
     // REPLACE BY SERVER IP
     URL_BASE("http://192.168.8.92:8080/"),
@@ -11,7 +11,6 @@ public enum API {
     URL_FORGOTTEN_PW("/forgotten"),
 
     URL_MEMBER("/member"),
-    URL_DELETE_MEMBER(""),
 
     // General URLs
     URL_FETCH_ALL("get-all"),
@@ -24,11 +23,14 @@ public enum API {
     FIELD_TOKEN("token"),
     FIELD_NEW_EMAIL("new-email"),
     FIELD_NEW_PASSWORD("new-password"),
-    FIELD_ACCOUNT_ID("account-id");
+    FIELD_ACCOUNT_ID("account-id"),
+
+    LOG_ERROR("ERROR"),
+    LOG_DEBUG("DEBUG");
 
     private final String s;
 
-    API(String s) {
+    ApiConst(String s) {
         this.s = s;
     }
 

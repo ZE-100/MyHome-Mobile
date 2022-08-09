@@ -1,8 +1,8 @@
 package com.myhome.service.api.components.impl;
 
 import com.myhome.Application;
-import com.myhome.other.API;
-import com.myhome.other.Api;
+import com.myhome.other.ApiConst;
+import com.myhome.other.Abi;
 import com.myhome.other.Session;
 import com.myhome.service.api.callback.CallbackEntity;
 import com.myhome.service.api.components.GsonRequest;
@@ -15,71 +15,71 @@ import java.util.Map;
 
 public class FetchMemberService implements IFetchMemberService {
 
-    private final String BASE_ACCOUNT = API.URL_BASE.value() +  API.URL_MEMBER.value();
+    private final String BASE_ACCOUNT = ApiConst.URL_BASE.value() +  ApiConst.URL_MEMBER.value();
 
     @Override
     public void fetchAllMembers(CallbackEntity<Members> callback) {
         Map<String, String> headers = new HashMap<>(Session.Factory.getAuth().getHeaders());
 
-        String fetchAllMembersURL = BASE_ACCOUNT + API.URL_FETCH_ALL;
+        String fetchAllMembersURL = BASE_ACCOUNT + ApiConst.URL_FETCH_ALL;
 
         GsonRequest<Members> fetchAllMembersRequest = new GsonRequest<>(
                 fetchAllMembersURL, Members.class, headers,
                 callback::handleResponse,
-                error -> Logger.log("", "", "")
+                error -> Logger.log(ApiConst.LOG_ERROR, this.getClass(), error.getMessage())
         );
 
-        Application.queue.add(fetchAllMembersRequest);
+        Application.requestQueue.add(fetchAllMembersRequest);
     }
 
     @Override
     public void insertMember(Integer icon, String name, CallbackEntity<Boolean> callback) {
         Map<String, String> headers = new HashMap<>(Session.Factory.getAuth().getHeaders());
-        headers.put(Api.ICON_FIELD, String.valueOf(icon));
-        headers.put(Api.NAME_FIELD, name);
+        headers.put(Abi.ICON_FIELD, String.valueOf(icon));
+        headers.put(Abi.NAME_FIELD, name);
 
-        String insertMemberURL = BASE_ACCOUNT + API.URL_REGISTER;
+        String insertMemberURL = BASE_ACCOUNT + ApiConst.URL_REGISTER;
 
         GsonRequest<Boolean> insertMemberRequest = new GsonRequest<>(
                 insertMemberURL, Boolean.class, headers,
                 callback::handleResponse,
-                error -> Logger.log("", "", "")
+                error -> Logger.log(ApiConst.LOG_ERROR, this.getClass(), error.getMessage())
         );
 
-        Application.queue.add(insertMemberRequest);
+        Application.requestQueue.add(insertMemberRequest);
     }
 
     @Override
     public void deleteMember(Long memberId, CallbackEntity<Boolean> callback) {
         Map<String, String> headers = new HashMap<>(Session.Factory.getAuth().getHeaders());
-        headers.put(Api.MEMBER_ID_FIELD, String.valueOf(memberId));
+        headers.put(Abi.MEMBER_ID_FIELD, String.valueOf(memberId));
 
-        String deleteMemberURL = BASE_ACCOUNT + API.URL_DELETE;
+        String deleteMemberURL = BASE_ACCOUNT + ApiConst.URL_DELETE;
 
         GsonRequest<Boolean> deleteMemberRequest = new GsonRequest<>(
                 deleteMemberURL, Boolean.class, headers,
                 callback::handleResponse,
-                error -> Logger.log("", "", "")
+                error -> Logger.log(ApiConst.LOG_ERROR, this.getClass(), error.getMessage())
         );
 
-        Application.queue.add(deleteMemberRequest);
+        Application.requestQueue.add(deleteMemberRequest);
     }
 
     @Override
     public void updateMember(Long memberId, Integer icon, String name, CallbackEntity<Boolean> callback) {
         Map<String, String> headers = new HashMap<>(Session.Factory.getAuth().getHeaders());
-        headers.put(Api.MEMBER_ID_FIELD, String.valueOf(memberId));
-        headers.put(Api.REPLACEMENT_ICON_FIELD, String.valueOf(icon));
-        headers.put(Api.REPLACEMENT_NAME_FIELD, name);
+        headers.put(Abi.MEMBER_ID_FIELD, String.valueOf(memberId));
+        headers.put(Abi.REPLACEMENT_ICON_FIELD, String.valueOf(icon));
+        headers.put(Abi.REPLACEMENT_NAME_FIELD, name);
 
-        String updateMemberURL = BASE_ACCOUNT + API.URL_UPDATE;
+        String updateMemberURL = BASE_ACCOUNT + ApiConst.URL_UPDATE;
 
         GsonRequest<Boolean> updateMemberRequest = new GsonRequest<>(
                 updateMemberURL, Boolean.class, headers,
                 callback::handleResponse,
-                error -> Logger.log("", "", "")
+                error -> Logger.log(ApiConst.LOG_ERROR, this.getClass(), error.getMessage())
         );
 
-        Application.queue.add(updateMemberRequest);
+        Application.requestQueue.add(updateMemberRequest);
     }
 }
