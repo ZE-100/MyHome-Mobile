@@ -1,9 +1,8 @@
 package com.myhome.service.api.components.impl;
 
 import com.myhome.Application;
-import com.myhome.other.ApiConst;
+import com.myhome.service.api.constants.ApiConst;
 import com.myhome.other.Session;
-import com.myhome.other.Strings;
 import com.myhome.service.api.callback.CallbackEntity;
 import com.myhome.service.api.components.GsonRequest;
 import com.myhome.service.api.components.IFetchAccountService;

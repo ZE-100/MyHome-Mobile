@@ -1,7 +1,7 @@
 package com.myhome.other
 
 //TODO Rework structure
-class Api {
+class Abi {
     companion object Factory {
         // ! Replace by server IP
         const val BASE_URL = "http://192.168.8.92:8080/"
