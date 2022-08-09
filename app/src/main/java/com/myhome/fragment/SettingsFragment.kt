@@ -28,7 +28,8 @@ class SettingsFragment : Fragment() {
 
     private var members = Session.getAllMembers()!!.members
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         return binding.root
@@ -41,16 +42,16 @@ class SettingsFragment : Fragment() {
     }
 
     private fun generateBindings() {
-        binding.navigationBar.setOnItemSelectedListener {
-            item -> when (item.itemId) {
-                R.id.footer_home_btn ->  findNavController().navigate(SettingsFragmentDirections.settingsToDashboard().setBackButton(
-                    R.id.dashboard_to_settings))
+        binding.navigationBar.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.footer_home_btn ->  findNavController().navigate(SettingsFragmentDirections
+                    .settingsToDashboard().setBackButton(R.id.dashboard_to_settings))
 
-                R.id.footer_kitchen_btn -> findNavController().navigate(SettingsFragmentDirections.settingsToKitchen().setBackButton(
-                    R.id.kitchen_to_settings))
+                R.id.footer_kitchen_btn -> findNavController().navigate(SettingsFragmentDirections
+                    .settingsToKitchen().setBackButton(R.id.kitchen_to_settings))
 
-                R.id.footer_rooms_btn -> findNavController().navigate(SettingsFragmentDirections.settingsToRooms().setBackButton(
-                    R.id.rooms_to_settings))
+                R.id.footer_rooms_btn -> findNavController().navigate(SettingsFragmentDirections
+                    .settingsToRooms().setBackButton(R.id.rooms_to_settings))
             }
             true
         }
@@ -70,7 +71,8 @@ class SettingsFragment : Fragment() {
 
         binding.gridView.onItemClickListener = OnItemClickListener {
                 _, _, _, _ -> members
-            }
+        }
+
         binding.helpButton.setOnClickListener {
             findNavController().navigate(SettingsFragmentDirections.settingsToHelp().setBackButton(
                 R.id.help_to_settings))
