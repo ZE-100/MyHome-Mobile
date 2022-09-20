@@ -1,5 +1,7 @@
 # :house: MyHome Feature list
 
+This application or it's concept may not be used/copied.
+
 ## ***For the developers***
 - [Back to MyHome](https://github.com/Z-100/MyHome)
 - [The Springboot RESTful API](https://github.com/Z-100/MyHome-Backend)
